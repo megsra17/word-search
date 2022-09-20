@@ -10,7 +10,7 @@ var guessChar = [];
 //socre variable
 //timeleft variable
 
-function handleKeyUp(event){
+function handleKeyDown(event){
     console.log(event);
     //validate the key
     if (validChar.includes(event.key)){
@@ -30,9 +30,10 @@ function renderChars(){
             //push charcter into our str
         }else{
             //addh an _ into str
+            str += '_ '
         }
             
-       str += '_ '
+       
        
 
     }
@@ -50,4 +51,4 @@ function startRound(){
 
 startBtn.addEventListener('click', startRound)
     
-document.addEventListener('keyup', handleKeyUp)
+document.addEventListener('keydown', handleKeyDown)
