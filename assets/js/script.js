@@ -8,7 +8,18 @@ var word
 //timeleft variable
 
 function renderChars(){
-//word-blanks would reset _ for each letter of the new word
+    var str = ''
+    for(var i = 0; i < word.length; i++){
+        //if right 
+            //push charcter into our str
+        //else 
+            //addh an _ into str
+       str += '_ '
+       
+
+    }
+    //set textContent of wordBlanksEl to be str
+    wordBlanksEl.textContent = str.trim();
 }
 
 function startRound(){
