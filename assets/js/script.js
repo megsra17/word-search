@@ -2,6 +2,7 @@
 var startBtn = document.querySelector('.start-button');
 var wordBlanksEl = document.querySelector('.word-blanks');
 var scoreEl =document.querySelector('.score')
+var timerCount = document.querySelector('.timer-count')
 
 
 var validChar = 'abcdefghijklmnopqrstuvwxyz'
@@ -9,8 +10,21 @@ var words = ['birthday', 'javascript', 'object', 'function', 'variable', 'locals
 var word ;
 var guessChar = [];
 var score = 0;
+var timeleft = 10
+var intervalId 
 
-//timeleft variable
+function startCountDown(){
+    clearInterval(intervalId)
+    intervalId = setInterval(function(){
+        timeleft --
+        timerCount.textContent = timeleft
+        if (timeleft === 0){
+            clearInterval(intervalId)
+            wordBlanksEl.innerText = "Game over! Your score is " + score;
+        }
+            // stop game
+    }, 1000)
+}
 
 
 function checkWord(){
@@ -19,6 +33,7 @@ function checkWord(){
     if (word === wordDom){
         score ++
         scoreEl.textContent = score;
+        startRound();
     }
 }
 
@@ -52,6 +67,7 @@ function startRound(){
     var randomIndex = Math.floor(Math.random() * words.length);
     word = words[randomIndex];
     renderChars()
+    startCountDown()
     
     //get random words from word array  
 }
