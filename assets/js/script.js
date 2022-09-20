@@ -22,7 +22,6 @@ function startCountDown(){
             clearInterval(intervalId)
             wordBlanksEl.innerText = "Game over! Your score is " + score;
         }
-            // stop game
     }, 1000)
 }
 
